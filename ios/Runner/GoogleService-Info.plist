@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>840212319449-shimj9lpdshl4b0kqu2c0e7ufihu7mdg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.840212319449-shimj9lpdshl4b0kqu2c0e7ufihu7mdg</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB2KhaStCYqqS0GA-PwqjOjHKSNifKbOFQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>840212319449</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.agrisensorapp</string>
+	<key>PROJECT_ID</key>
+	<string>agrisensor-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>agrisensor-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:840212319449:ios:21dfa10c7f9d7be809c2c8</string>
+	<key>DATABASE_URL</key>
+	<string>https://agrisensor-app.firebaseio.com</string>
+</dict>
+</plist>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "840212319449",
+    "firebase_url": "https://agrisensor-app.firebaseio.com",
+    "project_id": "agrisensor-app",
+    "storage_bucket": "agrisensor-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840212319449:android:017b6a7f3f2f17a509c2c8",
+        "android_client_info": {
+          "package_name": "com.example.agrisensor_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840212319449-8584th0nt2bpdnc9ncp4iqha8sigqk7b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUFo2r73JC5s1dBbsmeG0BKHl9iUiB6ok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840212319449-8584th0nt2bpdnc9ncp4iqha8sigqk7b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "840212319449-shimj9lpdshl4b0kqu2c0e7ufihu7mdg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.agrisensorapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
