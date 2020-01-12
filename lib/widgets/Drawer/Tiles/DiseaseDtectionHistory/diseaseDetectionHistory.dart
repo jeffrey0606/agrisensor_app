@@ -10,13 +10,41 @@ class DiseaseDetectionHistory extends StatefulWidget {
 
 class _DiseaseDetectionHistoryState extends State<DiseaseDetectionHistory> {
   bool _showMore = false;
+  bool _isAHistoryIsOpen = false;
+  bool _currentIndexOpen = false;
   List<String> dum = [
     'me',
     'you',
     'here',
     'them',
   ];
-  int _currentIndex;
+  int _currentIndex = 0;
+
+  void _show(int index) {
+    setState(() {
+      if (_currentIndex == index) {
+        if (_showMore) {
+          _showMore = false;
+          _isAHistoryIsOpen = false;
+        } else {
+          _showMore = true;
+          _isAHistoryIsOpen = true;
+        }
+        _currentIndex = index;
+      } else {
+        if (_isAHistoryIsOpen) {
+          _showMore = false;
+          _showMore = true;
+          _isAHistoryIsOpen = false;
+        } else {
+          _showMore = true;
+          _isAHistoryIsOpen = true;
+        }
+        _currentIndex = index;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,17 +150,7 @@ class _DiseaseDetectionHistoryState extends State<DiseaseDetectionHistory> {
                                             children: <Widget>[
                                               Text('\'data\''),
                                               FlatButton(
-                                                onPressed: () {
-                                                  setState(() {
-                                                    if (_showMore) {
-                                                      _showMore = false;
-                                                      _currentIndex = index;
-                                                    } else {
-                                                      _showMore = true;
-                                                      _currentIndex = index;
-                                                    }
-                                                  });
-                                                },
+                                                onPressed: () => _show(index),
                                                 child: Text(
                                                     _currentIndex == index
                                                         ? _showMore

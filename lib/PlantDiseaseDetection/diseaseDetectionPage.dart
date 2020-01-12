@@ -1,8 +1,13 @@
 import 'dart:io';
 
+import 'package:agrisensor_app/PlantDiseaseDetection/notPremium.dart';
+import 'package:agrisensor_app/PlantDiseaseDetection/premium.dart';
 import 'package:agrisensor_app/plantImageDetection.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 
 class DiseaseDetectionPage extends StatefulWidget {
   static const nameRoute = 'DiseaseDetectionPage';
@@ -12,20 +17,77 @@ class DiseaseDetectionPage extends StatefulWidget {
 }
 
 class _DiseaseDetectionPageState extends State<DiseaseDetectionPage> {
-  /*File image;
+  File image;
   bool _isDetecting = false;
 
   bool _busy = false;
 
+  bool _hasRegisteredForPremium = true;
 
-  void getImage() async {
-    File _image = await ImagePicker.pickImage(source: ImageSource.gallery);
+  void getImage(ImageSource imageSource) async {
+    File _image = await ImagePicker.pickImage(source: imageSource);
     setState(() {
       image = _image;
+      print(image);
     });
   }
 
-  List<dynamic> _detectedDisease;
+  Future<void> galleryOrCameraPick() async {
+    return showDialog<void>(
+      context: context,
+      builder: (builder) {
+        return AlertDialog(
+          title: Text(
+            'Choose',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.red,
+              decoration: TextDecoration.underline,
+            ),
+          ),
+          content: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    getImage(ImageSource.camera);
+                  },
+                  leading: Icon(Icons.camera_alt),
+                  title: Text(
+                    'From Camera',
+                  ),
+                ),
+                ListTile(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    getImage(ImageSource.gallery);
+                  },
+                  leading: Icon(Icons.photo),
+                  title: Text(
+                    'From Gallery',
+                  ),
+                )
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            FlatButton(
+              child: Text(
+                'Exit',
+                style: TextStyle(
+                  color: Colors.red,
+                ),
+              ),
+              onPressed: () => Navigator.of(context).pop(),
+            )
+          ],
+        );
+      },
+    );
+  }
+
+  /*List<dynamic> _detectedDisease;
 
   Future<void> detectDisease() async {
     if (image != null) {
@@ -53,12 +115,93 @@ class _DiseaseDetectionPageState extends State<DiseaseDetectionPage> {
 
   @override
   Widget build(BuildContext context) {
+    final orientation = MediaQuery.of(context).orientation;
+    //final appbarHeight = Scaffold.of(context);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Detect Disease'),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => galleryOrCameraPick(),
+        elevation: 5,
+        child: Icon(
+          Icons.camera,
+          color: Color.fromRGBO(10, 17, 40, 1.0),
+          size: 35,
+        ),
       ),
-      body: /*Center(
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            title: Text('Health Check'),
+            expandedHeight: 200,
+            forceElevated: true,
+            pinned: true,
+            flexibleSpace: FlexibleSpaceBar(
+              centerTitle: true,
+              titlePadding: EdgeInsets.all(0),
+              title: Text(
+                'Potatoes Leaves',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+              background: image != null
+                  ? Image.file(
+                      image,
+                      fit: BoxFit.cover,
+                    )
+                  : Container(
+                      color: Colors.blue,
+                    ),
+            ),
+          ),
+          SliverFillRemaining(
+            hasScrollBody: true,
+            child: Container(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'Disease name :',
+                            style: TextStyle(
+                              color: Color.fromRGBO(10, 17, 40, 1.0),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Expanded(
+                            child: Text(
+                              'corn maize cercospora leaf spot gray leaf spot .',
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: Color.fromRGBO(10, 17, 40, 1.0),
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  _hasRegisteredForPremium ? Premium() : NotPremium(),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+/*Center(
         child: _busy
             ? CircularProgressIndicator()
             : Column(
@@ -126,7 +269,3 @@ class _DiseaseDetectionPageState extends State<DiseaseDetectionPage> {
           ],
         ),
       ),*/
-      Container()
-    );
-  }
-}

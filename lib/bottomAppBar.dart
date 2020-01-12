@@ -27,8 +27,16 @@ class _BottomAppBarState extends State<CustomBottomAppBar> {
         bucket: _bucket,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context).pushNamed(DiseaseDetectionPage.nameRoute),
+      floatingActionButton:FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            _currentScreen = MyHomePage();
+            _currentTab = 0;
+          });
+          if(_currentTab == 0){
+            Navigator.of(context).pushNamed(DiseaseDetectionPage.nameRoute);
+          }
+          },
         child: ImageIcon(
           AssetImage(
             'assets/runtestIcon.png',

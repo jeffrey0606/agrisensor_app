@@ -1,7 +1,9 @@
+import 'package:agrisensor_app/widgets/Drawer/Tiles/AskExpert/askExpert.dart';
 import 'package:agrisensor_app/widgets/Drawer/Tiles/DiseaseDtectionHistory/diseaseDetectionHistory.dart';
-import 'package:agrisensor_app/widgets/SteupArticle/setupArticle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'Tiles/SteupArticle/setupArticle.dart';
 
 class DrawerLayout extends StatelessWidget {
   @override
@@ -73,6 +75,18 @@ class DrawerLayout extends StatelessWidget {
               ),
               title: Text(
                 'Setup Article',
+                style: TextStyle(color: Color.fromRGBO(10, 17, 40, 1.0)),
+              ),
+            ),
+            ListTile(
+              onTap: () => Navigator.of(context).pushNamed(AskExpert.nameRoute),
+              leading: Icon(
+                Icons.comment,
+                color: Color.fromRGBO(10, 17, 40, 1.0),
+                size: 30,
+              ),
+              title: Text(
+                'Ask Expert',
                 style: TextStyle(color: Color.fromRGBO(10, 17, 40, 1.0)),
               ),
             ),

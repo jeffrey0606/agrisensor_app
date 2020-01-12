@@ -1,10 +1,12 @@
 import 'package:agrisensor_app/PlantDiseaseDetection/diseaseDetectionPage.dart';
 import 'package:agrisensor_app/plantImageDetection.dart';
+import 'package:agrisensor_app/widgets/Drawer/Tiles/AskExpert/askExpert.dart';
 import 'package:agrisensor_app/widgets/Drawer/Tiles/DiseaseDtectionHistory/diseaseDetectionHistory.dart';
 import 'package:agrisensor_app/widgets/FullArticlePage/fullArticlePage.dart';
-import 'package:agrisensor_app/widgets/SteupArticle/setupArticle.dart';
 import 'package:flutter/material.dart';
+import 'ProfilePage/notifications.dart';
 import 'bottomAppBar.dart';
+import 'widgets/Drawer/Tiles/SteupArticle/setupArticle.dart';
 
 void main() => runApp(MyApp());
 
@@ -51,6 +53,8 @@ class _MyAppState extends State<MyApp> {
         DiseaseDetectionPage.nameRoute : (ctx) => DiseaseDetectionPage(),
         DiseaseDetectionHistory.nameRoute : (ctx) => DiseaseDetectionHistory(),
         SetupArticle.nameRoute : (ctx) => SetupArticle(),
+        AskExpert.nameRoute : (ctx) => AskExpert(),
+        Notifications.nameRoute: (ctx) => Notifications(),
       },
     );
   }
